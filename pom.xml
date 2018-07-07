@@ -206,6 +206,45 @@
                     <groupId>com.mycila</groupId>
                     <artifactId>license-maven-plugin</artifactId>
                     <version>2.11</version>
+					<configuration>
+  263                     <!-- License header file (can be a URL, but that's less stable if external site is down on occasion) -->
+  264                     <header>${root.basedir}/LICENSE_HEADER</header>
+  265                     <!--Just check headers of everything in the /src directory -->
+  266                     <includes>
+  267                         <include>src/**</include>
+  268                     </includes>
+  269                     <!--Use all default exclusions for IDE files & Maven files, see: 
+  270                         http://code.google.com/p/maven-license-plugin/wiki/Configuration#Default_excludes -->
+  271                     <useDefaultExcludes>true</useDefaultExcludes>
+  272                     <!-- Add some default DSpace exclusions not covered by <useDefaultExcludes> 
+  273                          Individual Maven projects may choose to override these defaults. -->
+  274                     <excludes>
+  275                         <exclude>**/src/test/resources/**</exclude>
+  276                         <exclude>**/src/test/data/**</exclude>
+  277                         <exclude>**/src/main/license/**</exclude>
+  278                         <exclude>**/test.cfg</exclude>
+  279                         <exclude>**/META-INF/**</exclude>
+  280                         <exclude>**/robots.txt</exclude>
+  281                         <exclude>**/*.LICENSE</exclude>
+  282                         <exclude>**/LICENSE*</exclude>
+  283                         <exclude>**/README*</exclude>
+  284                         <exclude>**/readme*</exclude>
+  285                         <exclude>**/.gitignore</exclude>
+  286                     </excludes>
+  287                     <mapping> 
+  288                         <!-- Custom DSpace file extensions which are not recognized by maven-release-plugin: 
+  289                              *.xmap, *.xslt, *.wsdd, *.wsdl, *.ttl, *.LICENSE -->
+  290                         <xmap>XML_STYLE</xmap>
+  291                         <xslt>XML_STYLE</xslt>
+  292                         <wsdd>XML_STYLE</wsdd>
+  293                         <wsdl>XML_STYLE</wsdl>
+  294                         <ttl>SCRIPT_STYLE</ttl>
+  295                         <LICENSE>TEXT</LICENSE>
+  296                     </mapping>  
+  297                     <encoding>UTF-8</encoding>
+  298                     <!-- maven-license-plugin recommends a strict check (e.g. check spaces/tabs too) -->
+  299                     <strictCheck>true</strictCheck>
+  300                 </configuration>
                 </plugin>
                 <!-- Used to generate a new release via Sonatype (see release profile). -->
                 <plugin>
