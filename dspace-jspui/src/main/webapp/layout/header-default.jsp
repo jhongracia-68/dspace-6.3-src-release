@@ -107,7 +107,8 @@
     <%-- HACK: marginwidth, marginheight: for non-CSS compliant Netscape browser --%>
     <body class="undernavigation">
 <a class="sr-only" href="#content">Skip navigation</a>
-<header class="navbar navbar-inverse navbar-fixed-top">    
+
+<header class="navbar navbar-inverse navbar-fixed-top "  >    
     <%
     if (!navbar.equals("off"))
     {
@@ -129,12 +130,18 @@
 </header>
 
 <main id="content" role="main">
-<div class="container banner">
+   <style>
+  .bannerstyle { 
+       background-color: #558b2f; /* Green */
+        color: #ffffff;
+    }
+  </style>
+<div class=" container container-fluid bg-1  "  >
     <div class="row">
-        <div class="col-md-9 brand">
-            <h1>Aquí encontrara todo tipo de documentacion </h1>
+        <div class="col-md-9 page-header">
+            <h1>Bienvenido <small>Repositorio digital FACCI</small></h1>
         </div>
-        <div ><img class="pull-right" src="<%= request.getContextPath() %>/image/facci.png" alt="DSpace logo" />
+        <div ><%--<img class="pull-right" src="<%= request.getContextPath() %>/image/facci.png" alt="DSpace logo" >--%>
         </div>
     </div>
 </div>

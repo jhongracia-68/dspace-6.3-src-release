@@ -25,7 +25,12 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
   
 <%@ page import="java.util.List" %>
-<ol class="breadcrumb btn-success">
+<style>
+  .ocultar { 
+       display: none;
+    }
+</style>
+<ol class="breadcrumb btn-success ocultar" visible="false">
 <%
     List parentTitles = (List) request.getAttribute("dspace.layout.parenttitles");
     List parentLinks = (List) request.getAttribute("dspace.layout.parentlinks");
